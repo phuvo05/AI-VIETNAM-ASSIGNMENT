@@ -1,0 +1,62 @@
+[user]
+    name = phuvo05
+    email = phuvo05kid@gmail.com
+    # signingkey = ABCDEFGH12345678  # nếu dùng GPG để ký commit
+
+[core]
+    editor = code --wait  # dùng VSCode làm editor
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
+    pager = diff-so-fancy | less --tabs=4 -RFX
+
+[color]
+    ui = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = green
+    changed = yellow
+    untracked = red bold
+
+[alias]
+    st = status -sb
+    ci = commit
+    co = checkout
+    br = branch
+    lg = log --oneline --graph --decorate --all
+    last = log -1 HEAD
+    hist = log --pretty=format:'%C(yellow)%h%Creset %ad | %C(cyan)%an%Creset | %s%C(auto)%d%Creset' --graph --date=short
+    amend = commit --amend --no-edit
+    unstage = reset HEAD --
+    save = stash save
+    pop = stash pop
+    pl = pull --rebase
+    rv = remote -v
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+[merge]
+    tool = meld  # hoặc kdiff3, vimdiff, code, tùy bạn
+    conflictstyle = diff3
+
+[diff]
+    tool = meld
+    algorithm = histogram
+
+[push]
+    default = simple
+
+[credential]
+    helper = cache --timeout=3600  # lưu mật khẩu 1h
+
+[rerere]
+    enabled = true  # nhớ các conflict đã giải để không phải giải lại
